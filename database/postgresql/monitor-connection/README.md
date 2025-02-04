@@ -1,4 +1,9 @@
 ### How It Works
+
+```
+python3 monitor_connections.py <db_name> <db_endpoint> <db_port> <db_username> <db_password> <threshold>
+```
+
 Arguments:
 The script uses `argparse` to accept six parameters:
 
