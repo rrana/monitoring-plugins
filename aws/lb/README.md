@@ -32,16 +32,16 @@ CRITICAL - High HTTP 5XX errors detected: 12 in the last 5 minutes.
 ### How it works
 
 * Retrieves ALB and associated Target Group:
-** Queries ALB details using `describe_load_balancers`.
-** Finds its associated Target Group using `describe_target_groups`.
+    * Queries ALB details using `describe_load_balancers`.
+    *  Finds its associated Target Group using `describe_target_groups`.
 
 * Checks the Health of Target Group Instances:
-** Uses `describe_target_health` to count unhealthy instances.
+    * Uses `describe_target_health` to count unhealthy instances.
 
 * Monitors HTTP 5XX Errors (CloudWatch Metrics):
-** Fetches the count of `HTTPCode_ELB_5XX_Count` over the last 5 minutes.
+    * Fetches the count of `HTTPCode_ELB_5XX_Count` over the last 5 minutes.
 
 * Nagios Integration:
-** `CRITICAL`: If all instances are unhealthy or 5XX errors exceed 10.
-** `WARNING`: If some instances are unhealthy or 5XX errors are detected (but not critical).
-** `OK`: If everything is running normally.
+    * `CRITICAL`: If all instances are unhealthy or 5XX errors exceed 10.
+    * `WARNING`: If some instances are unhealthy or 5XX errors are detected (but not critical).
+    * `OK`: If everything is running normally.
