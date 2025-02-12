@@ -1,0 +1,9 @@
+# Use official Elasticsearch 8 image
+FROM docker.elastic.co/elasticsearch/elasticsearch:8.11.0
+
+# Set environment variables for development mode
+ENV discovery.type=single-node
+ENV xpack.security.enabled=false
+
+# Expose necessary ports
+EXPOSE 9200 9300
