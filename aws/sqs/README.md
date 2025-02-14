@@ -15,6 +15,31 @@ This script monitors AWS SQS queues for message backlog and is designed for use 
 3.  Ensure the script is executable: `chmod +x check_sqs.py`.
 4.  Configure your Nagios server (see Nagios Configuration section).
 
+## IAM permissions
+
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "sqs:ListQueues",
+                "sqs:GetQueueAttributes"
+            ],
+            "Resource": "*"  # Or specify ARNs of specific queues
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "cloudwatch:GetMetricData"
+            ],
+            "Resource": "*"
+        }
+    ]
+}
+```
+
 ## Usage
 
 ```bash
