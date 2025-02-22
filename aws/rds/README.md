@@ -25,7 +25,8 @@ python3 check_rds_restart.py --cluster my-aurora-cluster --region us-east-1
 
 ## Nagios integration
 
-`commands.cfg`
+Edit `commands.cfg`
+
 ```
 define command {
     command_name    check_rds_restart
@@ -33,7 +34,7 @@ define command {
 }
 ```
 
-`services.cfg`
+Edit `services.cfg`
 ```
 define service {
     use                 generic-service
